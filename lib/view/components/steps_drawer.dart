@@ -9,32 +9,35 @@ class FormStepDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 300,
-      color: context.colors.secondary,
-      child: ListView.builder(
-        itemCount: sidebarSteps.length,
-        itemBuilder: (context, index) {
-          final item = sidebarSteps[index];
-          return ListTile(
-            leading: CircleAvatar(
-              backgroundColor: context.colors.primary,
-              child: Center(
-                child: Text("${index + 1}"),
-              ),
-            ),
-            title: Text(
-              item.title,
-              style: context.typography.body,
-            ),
-            subtitle: Text(
-              item.description,
-              style: context.typography.bodySmall,
-            ),
-            onTap: () {},
-          );
-        },
-      ),
+    return Column(
+      children: [
+        Container(
+          height: 300,
+          child: ListView.builder(
+            itemCount: sidebarSteps.length,
+            itemBuilder: (context, index) {
+              final item = sidebarSteps[index];
+              return ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: context.colors.primary,
+                  child: Center(
+                    child: Text("${index + 1}"),
+                  ),
+                ),
+                title: Text(
+                  item.title,
+                  style: context.typography.body,
+                ),
+                subtitle: Text(
+                  item.description,
+                  style: context.typography.bodySmall,
+                ),
+                onTap: () {},
+              );
+            },
+          ),
+        ),
+      ],
     );
   }
 }
